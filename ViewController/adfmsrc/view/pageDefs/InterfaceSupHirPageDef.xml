@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.17" id="InterfaceSupHirPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DemandeDeCongeView4" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DemandeDeCongeView4Iterator"/>
+    <iterator Binds="DemandeDeCongeView1_1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DemandeDeCongeView1_1Iterator" RefreshCondition="#{DemCongeBean.message1!=null}" Refresh="always"/>
+    <searchRegion Binds="DemandeDeCongeView1_1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DemandeDeCongeView1_1Query"/>
+    <iterator Binds="DemandeDeCongeView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DemandeDeCongeView1Iterator"/>
+    <iterator Binds="EmployeView1" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeView1Iterator"
+              Refresh="always"/>
+    <iterator Binds="TypeCongeView1" RangeSize="-1" DataControl="AppModuleDataControl" id="TypeCongeView1Iterator"/>
+    <iterator Binds="SoldeEmployeView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="SoldeEmployeView1Iterator"/>
+    <iterator Binds="Employe1View1_1" RangeSize="25" DataControl="AppModuleDataControl" id="Employe1View1_1Iterator"/>
+    <iterator Binds="HistoriqueConge1View1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="HistoriqueConge1View1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="DemandeDeConge1View1_1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DemandeDeConge1View1_1Iterator"/>
+    <searchRegion Binds="DemandeDeCongeView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DemandeDeCongeView11Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DemandeDeCongeView1_1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="DemandeDeCongeView1_1Iterator" id="DemandeDeCongeView1_1">
+      <nodeDefinition DefName="model.DemandeDeCongeView1" Name="DemandeDeCongeView1_10">
+        <AttrNames>
+          <Item Value="IdDemande"/>
+          <Item Value="DateDemande"/>
+          <Item Value="DateConge"/>
+          <Item Value="DateFin"/>
+          <Item Value="Motif"/>
+          <Item Value="Typec"/>
+          <Item Value="Etat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DemandeDeCongeView1Iterator" id="DateConge">
+      <AttrNames>
+        <Item Value="DateConge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DemandeDeCongeView1Iterator" id="DateFin">
+      <AttrNames>
+        <Item Value="DateFin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="NomPrenom">
+      <AttrNames>
+        <Item Value="NomPrenom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="Telephone">
+      <AttrNames>
+        <Item Value="Telephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="Adresse">
+      <AttrNames>
+        <Item Value="Adresse"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="SituationFam">
+      <AttrNames>
+        <Item Value="SituationFam"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="Fonction">
+      <AttrNames>
+        <Item Value="Fonction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="DateDeNaissance">
+      <AttrNames>
+        <Item Value="DateDeNaissance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="Sexe">
+      <AttrNames>
+        <Item Value="Sexe"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DemandeDeCongeView1Iterator" id="Typec" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="TypeCongeView1Iterator">
+      <AttrNames>
+        <Item Value="Typec"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="TypeConge1"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="TypeConge1"/>
+      </ListDisplayAttrNames>
+    </list>
+    <navigationlist IterBinding="SoldeEmployeView1Iterator" ListOperMode="navigation"
+                    ListIter="SoldeEmployeView1Iterator" id="SoldeEmployeView1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="Typec"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="SoldeEmployeView1Iterator" id="SoldeAcquis">
+      <AttrNames>
+        <Item Value="SoldeAcquis"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoldeEmployeView1Iterator" id="SoldeRestant">
+      <AttrNames>
+        <Item Value="SoldeRestant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="NomPrenom1">
+      <AttrNames>
+        <Item Value="NomPrenom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="Telephone1">
+      <AttrNames>
+        <Item Value="Telephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="Adresse1">
+      <AttrNames>
+        <Item Value="Adresse"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="SituationFam1">
+      <AttrNames>
+        <Item Value="SituationFam"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="Fonction1">
+      <AttrNames>
+        <Item Value="Fonction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="DateDeNaissance1">
+      <AttrNames>
+        <Item Value="DateDeNaissance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="Sexe1">
+      <AttrNames>
+        <Item Value="Sexe"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employe1View1_1Iterator" id="Email1">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="HistoriqueConge1View1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="StartDate" NDValue="#{bindings.HistoriqueConge1View1.startDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="EndDate" NDValue="#{bindings.HistoriqueConge1View1.endDate}" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="timezone" NDValue="#{bindings.HistoriqueConge1View1.timeZoneId}" NDType="java.lang.String"/>
+    </action>
+    <calendar IterBinding="HistoriqueConge1View1Iterator" id="HistoriqueConge1View1"
+              xmlns="http://xmlns.oracle.com/adf/faces/binding" ActionBindingName="ExecuteWithParams">
+      <nodeDefinition DefName="model.HistoriqueConge1View">
+        <AttrNames>
+          <Item Type="id" Value="IdHist"/>
+          <Item Type="providerId" Value="Typec"/>
+          <Item Type="title" Value="Typec"/>
+          <Item Type="startTime" Value="DateD"/>
+          <Item Type="endTime" Value="DateF"/>
+          <Item Type="custom" Value="DateAcc"/>
+          <Item Type="custom" Value="DateD"/>
+          <Item Type="custom" Value="DateF"/>
+          <Item Type="custom" Value="IdEmploye"/>
+          <Item Type="custom" Value="IdHist"/>
+          <Item Type="custom" Value="Typec"/>
+        </AttrNames>
+      </nodeDefinition>
+      <providerDefinition IterBindingName="HistoriqueConge1View1Iterator">
+        <AttrNames>
+          <Item Type="id" Value="IdHist"/>
+          <Item Type="displayName" Value="IdHist"/>
+        </AttrNames>
+      </providerDefinition>
+    </calendar>
+    <tree IterBinding="DemandeDeConge1View1_1Iterator" id="DemandeDeConge1View1_1">
+      <nodeDefinition DefName="model.DemandeDeConge1View1" Name="DemandeDeConge1View1_10">
+        <AttrNames>
+          <Item Value="DateDemande"/>
+          <Item Value="DateConge"/>
+          <Item Value="DateFin"/>
+          <Item Value="Motif"/>
+          <Item Value="Typec"/>
+          <Item Value="Etat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DemandeDeConge1View1_1Iterator" id="DemandeDeConge1View1_11">
+      <nodeDefinition DefName="model.DemandeDeConge1View1" Name="DemandeDeConge1View1_110">
+        <AttrNames>
+          <Item Value="DateDemande"/>
+          <Item Value="DateConge"/>
+          <Item Value="DateFin"/>
+          <Item Value="Motif"/>
+          <Item Value="Typec"/>
+          <Item Value="Etat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DemandeDeCongeView1Iterator" id="DemandeDeCongeView1">
+      <nodeDefinition DefName="model.DemandeDeCongeView" Name="DemandeDeCongeView10">
+        <AttrNames>
+          <Item Value="DateDemande"/>
+          <Item Value="DateConge"/>
+          <Item Value="DateFin"/>
+          <Item Value="Motif"/>
+          <Item Value="Typec"/>
+          <Item Value="Etat"/>
+          <Item Value="IsRemoveAttachmentEnabled"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DemandeDeCongeView1Iterator" id="DemandeDeCongeView11">
+      <nodeDefinition DefName="model.DemandeDeCongeView" Name="DemandeDeCongeView110">
+        <AttrNames>
+          <Item Value="DateDemande"/>
+          <Item Value="DateConge"/>
+          <Item Value="DateFin"/>
+          <Item Value="Motif"/>
+          <Item Value="Typec"/>
+          <Item Value="Etat"/>
+          <Item Value="IsRemoveAttachmentEnabled"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DemandeDeCongeView1Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="DemandeDeCongeView1_1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <graph IterBinding="SoldeEmployeView1Iterator" id="SoldeEmployeView11" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="RING">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <item value="Typec"/>
+          <item value="SoldeAcquis"/>
+          <item value="SoldeRestant"/>
+        </series>
+        <groups>
+          <data>
+            <item value="SoldeAcquis"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
+  </bindings>
+</pageDefinition>

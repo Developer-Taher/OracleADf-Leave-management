@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="SIGA Login" id="d1"
+                 smallIconSource="#{resource['images:522766_336739466392936_802641544_n.jpg']}">
+        <af:messages id="m1"/>
+        <af:form id="f1" defaultCommand="cb2">
+            <af:panelStretchLayout id="psl1" inlineStyle="background-color:#5882FA;">
+                <f:facet name="center">
+                    <!-- id="af_one_column_stretched"   -->
+                    <af:panelFormLayout id="pfl1"
+                                        inlineStyle="height:12cm; width:9cm; background-color:white; margin:120px 0px 0px 500px; border-width:thick; font-style:italic;">
+                        <af:spacer width="10" height="10" id="s3"/>
+                        <af:spacer width="10" height="10" id="s4"/>
+                        <h:graphicImage library="images/" name="522766_336739466392936_802641544_n.jpg" height="66"
+                                        width="172" id="gi1" style="margin:0px 0px 0px 70px;"/>
+                        <af:spacer width="10" height="10" id="s5"/>
+                        <af:spacer width="10" height="10" id="s6"/>
+                        <af:spacer width="10" height="10" id="s7"/>
+                        <h:outputLabel value="Login" id="ol1"
+                                       style="font-size:130%; margin:0px 0px 30px; font-family:Georgia, 'Times New Roman', times, Serif;"/>
+                        <af:spacer width="10" height="10" id="s8"/>
+                        <h:inputText id="it1" style="height:0.8cm; width:5cm; margin:0px 0px 0px 30px;"
+                                     value="#{LoginBean.uname}"  required="true" requiredMessage="please enter your login"/>
+                        <af:spacer width="10" height="10" id="s9"/>
+                        <af:spacer width="10" height="10" id="s10"/>
+                        <af:spacer width="10" height="10" id="s11"/>
+                        <h:outputLabel value="Password" id="ol2"
+                                       style="font-size:130%; margin:0px 0px 30px; font-family:Georgia, 'Times New Roman', times, Serif;"/>
+                        <af:spacer width="10" height="10" id="s12"/>
+                        <h:inputSecret id="is1" style="height:0.8cm; width:5cm; margin:0px 0px 0px 30px;"
+                                       value="#{LoginBean.password}"  required="true" requiredMessage="please enter your Password"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:spacer width="10" height="10" id="s13"/>
+                        <p xmlns="http://www.w3.org/1999/xhtml">
+                            <h:commandButton value="Connecter" id="cb2"
+                                             style="height:0.9cm; margin:0px 0px 0px 25px; width:2.5cm;"
+                                             action="#{LoginBean.verif}"/>
+                        </p>
+                    </af:panelFormLayout>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:LoginBean-->
+</f:view>

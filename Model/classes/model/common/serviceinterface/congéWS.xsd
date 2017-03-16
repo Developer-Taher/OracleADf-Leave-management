@@ -1,0 +1,63 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/model/common/types/"
+     xmlns:tns="/model/common/types/" xmlns:ns0="/model/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/types/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd"/>
+    <import namespace="/model/common/" schemaLocation="../DemandeDeCongeViewSDO.xsd"/>
+    <element name="getDemandeDeCongeView1">
+        <complexType>
+            <sequence>
+                <element name="idDemande" type="int"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getDemandeDeCongeView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DemandeDeCongeViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateDemandeDeCongeView1">
+        <complexType>
+            <sequence>
+                <element name="demandeDeCongeView1" type="ns0:DemandeDeCongeViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateDemandeDeCongeView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DemandeDeCongeViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDemandeDeCongeView1">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns1:FindCriteria"/>
+                <element name="findControl" type="ns1:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDemandeDeCongeView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DemandeDeCongeViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDemandeDeCongeView1findbyId">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns1:FindCriteria"/>
+                <element name="findControl" type="ns1:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDemandeDeCongeView1findbyIdResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DemandeDeCongeViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

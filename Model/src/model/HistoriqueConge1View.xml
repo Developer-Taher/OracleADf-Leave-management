@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HistoriqueConge1View"
+  Version="11.1.2.60.17"
+  SelectList="HistoriqueConge1.ID_HIST, 
+       HistoriqueConge1.ID_EMPLOYE, 
+       HistoriqueConge1.DATE_ACC, 
+       HistoriqueConge1.DATE_D, 
+       HistoriqueConge1.DATE_F, 
+       HistoriqueConge1.TYPEC"
+  FromList="HISTORIQUE_CONGE HistoriqueConge1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="ID_EMPLOYE=(SELECT ID_EMP FROM PROFIL WHERE LOGIN=:log)">
+  <Variable
+    Name="StartDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="EndDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="timezone"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="log"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.current.sessionScope.get('test')]]></TransientExpression>
+  </Variable>
+  <EntityUsage
+    Name="HistoriqueConge1"
+    Entity="model.HistoriqueConge1"/>
+  <ViewAttribute
+    Name="IdHist"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdHist"
+    EntityUsage="HistoriqueConge1"
+    AliasName="ID_HIST"/>
+  <ViewAttribute
+    Name="IdEmploye"
+    PrecisionRule="true"
+    EntityAttrName="IdEmploye"
+    EntityUsage="HistoriqueConge1"
+    AliasName="ID_EMPLOYE"/>
+  <ViewAttribute
+    Name="DateAcc"
+    PrecisionRule="true"
+    EntityAttrName="DateAcc"
+    EntityUsage="HistoriqueConge1"
+    AliasName="DATE_ACC"/>
+  <ViewAttribute
+    Name="DateD"
+    PrecisionRule="true"
+    EntityAttrName="DateD"
+    EntityUsage="HistoriqueConge1"
+    AliasName="DATE_D"/>
+  <ViewAttribute
+    Name="DateF"
+    PrecisionRule="true"
+    EntityAttrName="DateF"
+    EntityUsage="HistoriqueConge1"
+    AliasName="DATE_F"/>
+  <ViewAttribute
+    Name="Typec"
+    PrecisionRule="true"
+    EntityAttrName="Typec"
+    EntityUsage="HistoriqueConge1"
+    AliasName="TYPEC"/>
+</ViewObject>

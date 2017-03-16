@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SoldeEmployeConnLink1"
+  Version="11.1.2.60.17">
+  <ViewLinkDefEnd
+    Name="EmployeView1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EmployeView1">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeView1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmployeView1.IdEmploye"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SoldeEmployeView1"
+    Cardinality="-1"
+    Owner="model.SoldeEmployeView1">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SoldeEmployeView1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SoldeEmployeView1.IdEmploye"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

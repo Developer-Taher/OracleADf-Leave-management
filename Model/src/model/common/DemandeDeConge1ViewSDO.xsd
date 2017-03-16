@@ -1,0 +1,27 @@
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:sdoXML="commonj.sdo/xml" targetNamespace="/model/common/" xmlns="/model/common/"
+     elementFormDefault="qualified" sdoJava:package="model.common">
+    <xsd:import schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/"/>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:import schemaLocation="classpath:/xml/sdoXML.xsd" namespace="commonj.sdo/xml"/>
+    <xsd:complexType name="DemandeDeConge1ViewSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>IdDemande</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="IdDemande" type="xsd:int" minOccurs="0" sdoXML:dataType="sdoJava:IntObject"/>
+            <xsd:element name="DateDemande" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="DateConge" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="DateFin" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="Motif" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="IdDemandeur" type="xsd:int" minOccurs="0" nillable="true"/>
+            <xsd:element name="Typec" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Etat" type="xsd:string" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="demandeDeConge1ViewSDO" type="DemandeDeConge1ViewSDO"/>
+</xsd:schema>

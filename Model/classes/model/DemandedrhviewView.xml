@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DemandedrhviewView"
+  Version="11.1.2.60.17"
+  SelectList="demandedrhview.ID_DEMANDE, 
+       demandedrhview.DATE_DEMANDE, 
+       demandedrhview.DATE_CONGE, 
+       demandedrhview.DATE_FIN, 
+       demandedrhview.MOTIF, 
+       demandedrhview.ID_DEMANDEUR, 
+       demandedrhview.TYPEC, 
+       demandedrhview.ETAT"
+  FromList="PFE.DEMANDE_DE_CONGE demandedrhview"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="ETAT='Acceptée Sup'">
+  <EntityUsage
+    Name="demandedrhview"
+    Entity="model.demandedrhview"/>
+  <ViewAttribute
+    Name="IdDemande"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdDemande"
+    EntityUsage="demandedrhview"
+    AliasName="ID_DEMANDE"/>
+  <ViewAttribute
+    Name="DateDemande"
+    PrecisionRule="true"
+    EntityAttrName="DateDemande"
+    EntityUsage="demandedrhview"
+    AliasName="DATE_DEMANDE"/>
+  <ViewAttribute
+    Name="DateConge"
+    PrecisionRule="true"
+    EntityAttrName="DateConge"
+    EntityUsage="demandedrhview"
+    AliasName="DATE_CONGE"/>
+  <ViewAttribute
+    Name="DateFin"
+    PrecisionRule="true"
+    EntityAttrName="DateFin"
+    EntityUsage="demandedrhview"
+    AliasName="DATE_FIN"/>
+  <ViewAttribute
+    Name="Motif"
+    PrecisionRule="true"
+    EntityAttrName="Motif"
+    EntityUsage="demandedrhview"
+    AliasName="MOTIF"/>
+  <ViewAttribute
+    Name="IdDemandeur"
+    PrecisionRule="true"
+    EntityAttrName="IdDemandeur"
+    EntityUsage="demandedrhview"
+    AliasName="ID_DEMANDEUR"/>
+  <ViewAttribute
+    Name="Typec"
+    PrecisionRule="true"
+    EntityAttrName="Typec"
+    EntityUsage="demandedrhview"
+    AliasName="TYPEC"/>
+  <ViewAttribute
+    Name="Etat"
+    PrecisionRule="true"
+    EntityAttrName="Etat"
+    EntityUsage="demandedrhview"
+    AliasName="ETAT"/>
+</ViewObject>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProfilView"
+  Version="11.1.2.60.17"
+  SelectList="Profil.LOGIN, 
+       Profil.PWD, 
+       Profil.ID_EMP, 
+       Profil.ID_USER"
+  FromList="PROFIL Profil"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Profil"
+    Entity="model.Profil"/>
+  <ViewAttribute
+    Name="Login"
+    PrecisionRule="true"
+    EntityAttrName="Login"
+    EntityUsage="Profil"
+    AliasName="LOGIN"/>
+  <ViewAttribute
+    Name="Pwd"
+    PrecisionRule="true"
+    EntityAttrName="Pwd"
+    EntityUsage="Profil"
+    AliasName="PWD"/>
+  <ViewAttribute
+    Name="IdEmp"
+    PrecisionRule="true"
+    EntityAttrName="IdEmp"
+    EntityUsage="Profil"
+    AliasName="ID_EMP"/>
+  <ViewAttribute
+    Name="IdUser"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdUser"
+    EntityUsage="Profil"
+    AliasName="ID_USER"/>
+</ViewObject>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DemandeDeCongeConLink"
+  Version="11.1.2.60.17"
+  EntityAssociation="model.DemandeDeCongeConAssoc">
+  <ViewLinkDefEnd
+    Name="EmployeView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EmployeView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmployeView.IdEmploye"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DemandeDeCongeView"
+    Cardinality="-1"
+    Owner="model.DemandeDeCongeView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DemandeDeCongeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DemandeDeCongeView.IdDemandeur"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EtatCongeView"
+  Version="11.1.2.60.17"
+  SelectList="EtatConge.ETAT"
+  FromList="ETAT_CONGE EtatConge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="EtatConge"
+    Entity="model.EtatConge"/>
+  <ViewAttribute
+    Name="Etat"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Etat"
+    EntityUsage="EtatConge"
+    AliasName="ETAT"/>
+  <ViewLinkAccessor
+    Name="DemandeDeCongeView"
+    ViewLink="model.DemandeDLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

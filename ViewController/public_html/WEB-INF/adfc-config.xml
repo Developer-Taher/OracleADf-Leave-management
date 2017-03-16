@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="login1">
+    <page>/login1.jsf</page>
+  </view>
+  <view id="interfaceEmp">
+    <page>/interfaceEmp.jsf</page>
+  </view>
+  <view id="InterfaceSupHir">
+    <page>/InterfaceSupHir.jsf</page>
+  </view>
+  <view id="interfaceDRH">
+    <page>/interfaceDRH.jsf</page>
+  </view>
+  <control-flow-rule id="__2">
+    <from-activity-id>login1</from-activity-id>
+    <control-flow-case id="__3">
+      <from-outcome>interfaceEmp</from-outcome>
+      <to-activity-id>interfaceEmp</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>interfaceSupHir</from-outcome>
+      <to-activity-id>InterfaceSupHir</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>interfaceDRH</from-outcome>
+      <to-activity-id>interfaceDRH</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__4">
+    <from-activity-id>interfaceEmp</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>logout</from-outcome>
+      <to-activity-id>login1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__8">
+    <from-activity-id>interfaceDRH</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome>logout</from-outcome>
+      <to-activity-id>login1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id>InterfaceSupHir</from-activity-id>
+    <control-flow-case id="__11">
+      <from-outcome>logout</from-outcome>
+      <to-activity-id>login1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>view.backing.Login</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>DemCongeBean</managed-bean-name>
+    <managed-bean-class>view.backing.DemCongeBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__13">
+      <property-name>p1</property-name>
+      <property-class>view.backing.Login</property-class>
+      <value>#{LoginBean}</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__14">
+    <managed-bean-name>bean1</managed-bean-name>
+    <managed-bean-class>view.backing.nbean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name>datebean</managed-bean-name>
+    <managed-bean-class>view.backing.datebean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name>sendmail</managed-bean-name>
+    <managed-bean-class>view.sendmail</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__17">
+    <managed-bean-name>GoogleTest</managed-bean-name>
+    <managed-bean-class>view.GoogleTest</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__18">
+    <managed-bean-name>DatePageBean</managed-bean-name>
+    <managed-bean-class>view.DatePageBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name>Calendar</managed-bean-name>
+    <managed-bean-class>view.Calendar</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name>sendm</managed-bean-name>
+    <managed-bean-class>view.sendm</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

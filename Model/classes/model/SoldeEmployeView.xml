@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SoldeEmployeView"
+  Version="11.1.2.60.17"
+  SelectList="SoldeEmploye.SOLDE_ACQUIS, 
+       SoldeEmploye.SOLDE_RESTANT, 
+       SoldeEmploye.ID_EMPLOYE, 
+       SoldeEmploye.TYPEC, 
+       SoldeEmploye.ID_CONGE"
+  FromList="SOLDE_EMPLOYE SoldeEmploye"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="ID_EMPLOYE=(SELECT ID_EMP FROM PROFIL WHERE LOGIN=:log)">
+  <Variable
+    Name="log"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.current.sessionScope.get('test')]]></TransientExpression>
+  </Variable>
+  <EntityUsage
+    Name="SoldeEmploye"
+    Entity="model.SoldeEmploye"/>
+  <ViewAttribute
+    Name="SoldeAcquis"
+    PrecisionRule="true"
+    EntityAttrName="SoldeAcquis"
+    EntityUsage="SoldeEmploye"
+    AliasName="SOLDE_ACQUIS"/>
+  <ViewAttribute
+    Name="SoldeRestant"
+    PrecisionRule="true"
+    EntityAttrName="SoldeRestant"
+    EntityUsage="SoldeEmploye"
+    AliasName="SOLDE_RESTANT"/>
+  <ViewAttribute
+    Name="IdEmploye"
+    PrecisionRule="true"
+    EntityAttrName="IdEmploye"
+    EntityUsage="SoldeEmploye"
+    AliasName="ID_EMPLOYE"/>
+  <ViewAttribute
+    Name="Typec"
+    PrecisionRule="true"
+    EntityAttrName="Typec"
+    EntityUsage="SoldeEmploye"
+    AliasName="TYPEC"/>
+  <ViewAttribute
+    Name="IdConge"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdConge"
+    EntityUsage="SoldeEmploye"
+    AliasName="ID_CONGE"
+    IsUpdateable="while_insert"/>
+</ViewObject>

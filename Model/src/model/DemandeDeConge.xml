@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DemandeDeConge"
+  Version="11.1.2.60.17"
+  DBObjectType="table"
+  DBObjectName="DEMANDE_DE_CONGE"
+  AliasName="DemandeDeConge"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="IdDemande"
+    IsNotNull="true"
+    ColumnName="ID_DEMANDE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="DEMANDE_DE_CONGE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("DEMANDE_DE_CONGE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="DateDemande"
+    ColumnName="DATE_DEMANDE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="DEMANDE_DE_CONGE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.DemandeDeConge.DateDemande_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.DemandeDeConge.DateDemande_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DateConge"
+    ColumnName="DATE_CONGE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="DEMANDE_DE_CONGE"/>
+  <Attribute
+    Name="DateFin"
+    ColumnName="DATE_FIN"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="DEMANDE_DE_CONGE"/>
+  <Attribute
+    Name="Motif"
+    Precision="180"
+    ColumnName="MOTIF"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDE_DE_CONGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdDemandeur"
+    ColumnName="ID_DEMANDEUR"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="DEMANDE_DE_CONGE"/>
+  <Attribute
+    Name="Typec"
+    Precision="20"
+    ColumnName="TYPEC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDE_DE_CONGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Etat"
+    Precision="40"
+    ColumnName="ETAT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDE_DE_CONGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="EtatConge"
+    Association="model.DemandeDAssoc"
+    AssociationEnd="model.DemandeDAssoc.EtatConge"
+    AssociationOtherEnd="model.DemandeDAssoc.DemandeDeConge"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TypeConge"
+    Association="model.DemandeDeconAssoc"
+    AssociationEnd="model.DemandeDeconAssoc.TypeConge"
+    AssociationOtherEnd="model.DemandeDeconAssoc.DemandeDeConge"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Employe"
+    Association="model.DemandeDeCongeConAssoc"
+    AssociationEnd="model.DemandeDeCongeConAssoc.Employe"
+    AssociationOtherEnd="model.DemandeDeCongeConAssoc.DemandeDeConge"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DemandeDeCongePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DEMANDE_DE_CONGE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DemandeDeConge.IdDemande"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DemandeD">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ETAT_CONGE_CON"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DEMANDE_D"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DemandeDeConge.Etat"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DemandeDeCongeCon">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPLOYE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DEMANDE_DE_CONGE_CON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DemandeDeConge.IdDemandeur"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DemandeDecon">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TYPE_CONGE_CON"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DEMANDE_DECON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DemandeDeConge.Typec"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

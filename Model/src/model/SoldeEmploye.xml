@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SoldeEmploye"
+  Version="11.1.2.60.17"
+  DBObjectType="table"
+  DBObjectName="SOLDE_EMPLOYE"
+  AliasName="SoldeEmploye"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="SoldeAcquis"
+    ColumnName="SOLDE_ACQUIS"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SOLDE_EMPLOYE"/>
+  <Attribute
+    Name="SoldeRestant"
+    ColumnName="SOLDE_RESTANT"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SOLDE_EMPLOYE"/>
+  <Attribute
+    Name="IdEmploye"
+    ColumnName="ID_EMPLOYE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SOLDE_EMPLOYE"/>
+  <Attribute
+    Name="Typec"
+    Precision="20"
+    ColumnName="TYPEC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SOLDE_EMPLOYE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdConge"
+    IsNotNull="true"
+    ColumnName="ID_CONGE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SOLDE_EMPLOYE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SOLDE_EMPLOYE_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="TypeConge"
+    Association="model.SoldeEmployeConAssoc"
+    AssociationEnd="model.SoldeEmployeConAssoc.TypeConge"
+    AssociationOtherEnd="model.SoldeEmployeConAssoc.SoldeEmploye"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Employe"
+    Association="model.SoldeEmployeConnAssoc"
+    AssociationEnd="model.SoldeEmployeConnAssoc.Employe"
+    AssociationOtherEnd="model.SoldeEmployeConnAssoc.SoldeEmploye"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SoldeEmployFk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SOLDE_EMPLOY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SoldeEmploye.IdConge"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SoldeEmployeCon">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TYPE_CONGE_CON"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SOLDE_EMPLOYE_CON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SoldeEmploye.Typec"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SoldeEmployeConn">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPLOYE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SOLDE_EMPLOYE_CONN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SoldeEmploye.IdEmploye"/>
+    </AttrArray>
+  </Key>
+</Entity>

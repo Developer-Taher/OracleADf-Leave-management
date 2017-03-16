@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProfilConnAssoc"
+  Version="11.1.2.60.17">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Employe"
+    Cardinality="1"
+    Source="true"
+    Owner="model.Employe">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Employe"/>
+      <Attr Name="_foreignKey" Value="model.Employe.EmployePk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Employe.IdEmploye"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Profil"
+    Cardinality="-1"
+    Owner="model.Profil">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Profil"/>
+      <Attr Name="_foreignKey" Value="model.Profil.ProfilConn"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Profil.IdEmp"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

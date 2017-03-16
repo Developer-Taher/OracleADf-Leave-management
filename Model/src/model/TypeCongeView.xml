@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TypeCongeView"
+  Version="11.1.2.60.17"
+  SelectList="TypeConge.TYPE_CONGE, 
+       TypeConge.NBRE_DE_JOURS"
+  FromList="TYPE_CONGE TypeConge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="TypeConge"
+    Entity="model.TypeConge"/>
+  <ViewAttribute
+    Name="TypeConge1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TypeConge"
+    EntityUsage="TypeConge"
+    AliasName="TYPE_CONGE"/>
+  <ViewAttribute
+    Name="NbreDeJours"
+    PrecisionRule="true"
+    EntityAttrName="NbreDeJours"
+    EntityUsage="TypeConge"
+    AliasName="NBRE_DE_JOURS"/>
+  <ViewLinkAccessor
+    Name="SoldeEmployeView"
+    ViewLink="model.SoldeEmployeConLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DemandeDeCongeView"
+    ViewLink="model.DemandeDeconLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

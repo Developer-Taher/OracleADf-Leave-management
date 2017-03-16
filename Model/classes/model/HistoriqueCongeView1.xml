@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HistoriqueCongeView1"
+  Version="11.1.2.60.17"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT HistoriqueConge.ID_HIST,
+       HistoriqueConge.ID_EMPLOYE,
+       HistoriqueConge.DATE_ACC,
+       HistoriqueConge.MATT_ACC,
+       HistoriqueConge.DATE_D,
+       HistoriqueConge.DATE_F,
+       HistoriqueConge.DEMANDEURC,
+       HistoriqueConge.TYPEC
+FROM HISTORIQUE_CONGE HistoriqueConge]]></SQLQuery>
+  <ViewAttribute
+    Name="IdHist"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="ID_HIST"
+    Expression="ID_HIST"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="IdEmploye"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="ID_EMPLOYE"
+    Expression="ID_EMPLOYE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="DateAcc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="DATE_ACC"
+    Expression="DATE_ACC"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="MattAcc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MATT_ACC"
+    Expression="MATT_ACC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DateD"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="DATE_D"
+    Expression="DATE_D"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="DateF"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="DATE_F"
+    Expression="DATE_F"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="Demandeurc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DEMANDEURC"
+    Expression="DEMANDEURC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Typec"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TYPEC"
+    Expression="TYPEC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="IdHist"/>
+  </AttrArray>
+</ViewObject>

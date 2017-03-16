@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.17" id="login1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProfilView1" RangeSize="10" DataControl="AppModuleDataControl" id="ProfilView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProfilView1Iterator" id="Login">
+      <AttrNames>
+        <Item Value="Login"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

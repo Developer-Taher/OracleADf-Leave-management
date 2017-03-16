@@ -1,0 +1,664 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+         <af:resource type="css" source="/resources/css/style_notification.css"/>
+  <af:resource type="javascript" source="/resources/js/jquery-1.4.4.js"/>
+
+ 
+  
+        
+    <af:document title="Application gestion de congé" id="d1"
+                 smallIconSource="#{resource['images:522766_336739466392936_802641544_n.jpg']}"
+                 inlineStyle="font-style:italic;">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="vertical" splitterPosition="50" id="ps1">
+                <f:facet name="first">
+                    <af:panelGroupLayout id="pgl2"
+                                         inlineStyle="width:auto;background-color:white">
+                        <af:activeImage source="#{resource['images:522766_336739466392936_802641544_n.jpg']}" id="ai1"
+                                        inlineStyle="width:116px; height:1.337cm;"/>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+                            <af:dialog id="d4" type="none"
+                                       inlineStyle="border-color:Gray; border-style:dotted; background-color:Gray;"
+                                       title="Notifications">
+                                <f:facet name="buttonBar"/>
+                                <af:outputText value="Vous avez #{LoginBean.nbd} demandes en attente de traitement " id="ot20"
+                                               attributeChangeListener="#{LoginBean.nbrdem}"
+                                               inlineStyle="font-size:110%;"/>
+                                <af:separator id="s15" inlineStyle="color:InactiveCaptiontext;"/>
+                            </af:dialog>
+                        </af:popup>
+                        <af:image source="#{resource['images:notttt.png']}" id="i3"
+                                  inlineStyle="width:40px; margin:-31px 0px 0px 1120px;">
+                            <af:showPopupBehavior triggerType="mouseHover" align="afterStart" popupId="p6"/>
+                        </af:image>
+                        <af:image source="#{resource['images:tans.png']}" id="i5"
+                                  inlineStyle="margin:-35px 0px 0px 1296px; height:0.69cm; width:0.69cm;">
+                            <af:showPopupBehavior popupId="p5" triggerType="mouseHover" align="afterStart"/>
+                        </af:image>
+                        <af:popup autoCancel="disabled" id="p5">
+                            <af:dialog id="d5" type="none"
+                                       inlineStyle="border-color:Silver; border-style:solid;">
+                                <af:commandButton text="Logout" id="cb8" action="#{LoginBean.getLogout}"
+                                                  inlineStyle="border-style:dotted; border-color:Blue; height:0.8cm; width:1.4cm;"/>
+                            </af:dialog>
+                        </af:popup>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p6">
+                            <af:dialog id="d6" type="none" inlineStyle="border-style:dotted; border-color:Teal;"
+                                       resize="off">
+                                <af:panelHeader text="        Vous avez #{LoginBean.nbd} demandes en attente de traitement " id="ph4"
+                                                inlineStyle="height:52px; width:395px;">
+                                    <f:facet name="context">
+                                        <af:image source="#{resource['images:aaaa.png']}" id="i9"
+                                                  inlineStyle="height:29px;"/>
+                                    </f:facet>
+                                </af:panelHeader>
+                            </af:dialog>
+                        </af:popup>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <!-- id="af_one_column_header_scroll_with_splitter"   -->
+                    <af:decorativeBox id="db1" inlineStyle="height:auto; width:auto;">
+                        <f:facet name="center">
+                            <af:decorativeBox theme="medium" id="db2">
+                                <f:facet name="center">
+                                    <af:panelTabbed id="pt1">
+                                        <af:showDetailItem text="   Acceuil" id="sdi5">
+                                            <af:panelStretchLayout id="psl1" inlineStyle="width:898px; height:599px;"
+                                                                   startWidth="383px" endWidth="405px"
+                                                                   bottomHeight="70px" topHeight="33px">
+                                                <f:facet name="bottom"/>
+                                                <f:facet name="center"/>
+                                                <f:facet name="start">
+                                                    <af:panelAccordion id="pa1" dimensionsFrom="children">
+                                                        <af:showDetailItem text="Profil" id="sdi7"
+                                                                           inlineStyle="color:#0A2A22; font-size:170%; background-color:#A9D0F5; border-color:#585858; border-style:inset;"
+                                                                           immediate="true">
+                                                            <af:spacer width="10" height="10" id="s40"/>
+                                                            <af:panelFormLayout id="pfl4" labelAlignment="top"
+                                                                                inlineStyle="height:10.7cm; border-width:thin;"
+                                                                                binding="#{LoginBean.pfl}">
+                                                                <af:panelLabelAndMessage label="Nom et prenom"
+                                                                                         id="plam9">
+                                                                    <af:outputText value="#{bindings.NomPrenom.inputValue}"
+                                                                                   id="ot23"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s17"/>
+                                                                <af:panelLabelAndMessage label="#{bindings.Telephone.hints.label}"
+                                                                                         id="plam10">
+                                                                    <af:outputText value="#{bindings.Telephone.inputValue}"
+                                                                                   id="ot24"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s16"/>
+                                                                <af:panelLabelAndMessage label="#{bindings.Adresse.hints.label}"
+                                                                                         id="plam11">
+                                                                    <af:outputText value="#{bindings.Adresse.inputValue}"
+                                                                                   id="ot25"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s19"/>
+                                                                <af:panelLabelAndMessage label="Situation familiale"
+                                                                                         id="plam12">
+                                                                    <af:outputText value="#{bindings.SituationFam.inputValue}"
+                                                                                   id="ot26"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s18"/>
+                                                                <af:panelLabelAndMessage label="#{bindings.Fonction.hints.label}"
+                                                                                         id="plam13">
+                                                                    <af:outputText value="#{bindings.Fonction.inputValue}"
+                                                                                   id="ot27"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s20"/>
+                                                                <af:panelLabelAndMessage label="Date de naissance"
+                                                                                         id="plam14">
+                                                                    <af:outputText value="#{bindings.DateDeNaissance.inputValue}"
+                                                                                   id="ot28">
+                                                                        <af:convertDateTime pattern="#{bindings.DateDeNaissance.format}"/>
+                                                                    </af:outputText>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s21"/>
+                                                                <af:panelLabelAndMessage label="#{bindings.Sexe.hints.label}"
+                                                                                         id="plam15">
+                                                                    <af:outputText value="#{bindings.Sexe.inputValue}"
+                                                                                   id="ot29"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:spacer width="10" height="10" id="s22"/>
+                                                                <af:panelLabelAndMessage label="#{bindings.Email.hints.label}"
+                                                                                         id="plam16">
+                                                                    <af:outputText value="#{bindings.Email.inputValue}"
+                                                                                   id="ot30"/>
+                                                                </af:panelLabelAndMessage>
+                                                            </af:panelFormLayout>
+                                                        </af:showDetailItem>
+                                                    </af:panelAccordion>
+                                                </f:facet>
+                                                <f:facet name="end">
+                                                    <af:panelHeader text="Solde restant par type" id="ph6">
+                                                        <f:facet name="context"/>
+                                                        <f:facet name="menuBar"/>
+                                                        <f:facet name="toolbar"/>
+                                                        <f:facet name="legend"/>
+                                                        <f:facet name="info"/>
+                                                        <af:panelGroupLayout id="pgl1">
+                                                            <af:selectOneChoice id="nl1" autoSubmit="true"
+                                                                                value="#{bindings.SoldeEmployeView1.inputValue}"
+                                                                                label="#{bindings.SoldeEmployeView1.label}"
+                                                                                contentStyle="height:0.8cm;width:5.4cm;color:Gray">
+                                                                <f:selectItems value="#{bindings.SoldeEmployeView1.items}"
+                                                                               id="si2"/>
+                                                            </af:selectOneChoice>
+                                                            <af:panelHeader text="Details" partialTriggers="nl1"
+                                                                            id="ph5"
+                                                                            inlineStyle="font-size:150%; width:9cm;">
+                                                                <af:panelFormLayout id="pfl5">
+                                                                    <af:panelLabelAndMessage label="#{bindings.SoldeAcquis.hints.label}"
+                                                                                             id="plam17"
+                                                                                             inlineStyle="color:Green;">
+                                                                        <af:outputText value="#{bindings.SoldeAcquis.inputValue}"
+                                                                                       id="ot31">
+                                                                            <af:convertNumber groupingUsed="false"
+                                                                                              pattern="#{bindings.SoldeAcquis.format}"/>
+                                                                        </af:outputText>
+                                                                    </af:panelLabelAndMessage>
+                                                                    <af:panelLabelAndMessage label="#{bindings.SoldeRestant.hints.label}"
+                                                                                             id="plam18">
+                                                                        <af:outputText value="#{bindings.SoldeRestant.inputValue}"
+                                                                                       id="ot32"
+                                                                                       inlineStyle="color:Red;">
+                                                                            <af:convertNumber groupingUsed="false"
+                                                                                              pattern="#{bindings.SoldeRestant.format}"/>
+                                                                        </af:outputText>
+                                                                    </af:panelLabelAndMessage>
+                                                                </af:panelFormLayout>
+                                                            </af:panelHeader>
+                                                            <af:calendar id="c17"
+                                                                         inlineStyle="height:6cm; width:9cm; margin:10px 0px 0px 0px;"
+                                                                         dateCustomizer="#{Calendar.holidays}"/>
+                                                        </af:panelGroupLayout>
+                                                    </af:panelHeader>
+                                                </f:facet>
+                                                <f:facet name="top">
+                                                    <af:panelHeader text="Gestion de congé SIGA" id="ph7">
+                                                        <f:facet name="context">
+                                                            <af:image source="#{resource['images:eLeave.gif']}"
+                                                                      id="i10" inlineStyle="width:36px; height:23px;"/>
+                                                        </f:facet>
+                                                        <f:facet name="menuBar"/>
+                                                        <f:facet name="toolbar">
+                                                            <af:commandButton text="commandButton 1" id="cb4"
+                                                                              actionListener="#{sendm.sendEmail}"/>
+                                                        </f:facet>
+                                                        <f:facet name="legend"/>
+                                                        <f:facet name="info"/>
+                                                    </af:panelHeader>
+                                                </f:facet>
+                                            </af:panelStretchLayout>
+                                        </af:showDetailItem>
+                                        <af:showDetailItem text="Demande de congé" id="sdi1" inlineStyle="height:15cm;">
+                                            <af:panelTabbed id="pt2" inlineStyle="height:485px; width:864px;">
+                                                <af:showDetailItem text="Envoyer demande de congé" id="sdi2">
+                                                    <af:panelHeader text="Envoi de demande" id="ph3">
+                                                        <f:facet name="context">
+                                                            <af:image source="#{resource['images:newim.png']}" id="i8"
+                                                                      inlineStyle="height:34px; width:40px;"/>
+                                                        </f:facet>
+                                                        <f:facet name="menuBar"/>
+                                                        <f:facet name="toolbar"/>
+                                                        <f:facet name="legend"/>
+                                                        <f:facet name="info"/>
+                                                        <af:panelFormLayout id="pfl3">
+                                                            <af:spacer width="10" height="10" id="s4"/>
+                                                            <af:spacer width="10" height="10" id="s7"/>
+                                                            <af:spacer width="10" height="10" id="s5"/>
+                                                            <af:selectOneChoice value="#{bindings.Typec.inputValue}"
+                                                                                label="Type congé                 "
+                                                                                required="#{bindings.Typec.hints.mandatory}"
+                                                                                shortDesc="#{bindings.Typec.hints.tooltip}"
+                                                                                id="soc1"
+                                                                                contentStyle="width:4cm;height:0.7cm"
+                                                                                labelStyle="color:#0B173B;Padding:0px 30px 0px 0px;font-size:135%;"
+                                                                                inlineStyle="font-size:100%;">
+                                                                <f:selectItems value="#{bindings.Typec.items}"
+                                                                               id="si1"/>
+                                                            </af:selectOneChoice>
+                                                            <af:spacer width="10" height="10" id="s8"/>
+                                                            <af:spacer width="10" height="10" id="s6"/>
+                                                            <af:spacer width="10" height="10" id="s3"/>
+                                                            <af:spacer width="10" height="10" id="s2"/>
+                                                            <af:inputDate value="#{bindings.DateConge.inputValue}"
+                                                                          label="Date début                                                              "
+                                                                          required="true"
+                                                                          columns="#{bindings.DateConge.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.DateConge.hints.tooltip}"
+                                                                          id="id9"
+                                                                          contentStyle="width:4.6cm;height:0.8cm"
+                                                                          autoSubmit="true" rendered="true"
+                                                                          minValue="#{datebean.minDatee}"
+                                                                          labelStyle="color:#0B173B;Padding:0px 30px 0px 0px;font-size:135%;">
+                                                                          
+                                                     
+                                                                <f:validator binding="#{bindings.DateConge.validator}"/>
+                                                                <af:convertDateTime pattern="#{bindings.DateConge.format}"/>
+                                                                 
+                                                            </af:inputDate>
+                                                            <af:spacer width="10" height="10" id="s10"/>
+                                                            <af:spacer width="10" height="10" id="s11"/>
+                                                            <af:spacer width="10" height="10" id="s9"/>
+                                                            <af:inputDate value="#{bindings.DateFin.inputValue}"
+                                                                          label="Date fin"
+                                                                          required="true"
+                                                                          columns="#{bindings.DateFin.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.DateFin.hints.tooltip}"
+                                                                          id="id10"
+                                                                          contentStyle="width:4.6cm;height:0.8cm"
+                                                                          autoSubmit="true"
+                                                                          minValue="#{datebean.minDatee}"
+                                                                          labelStyle="color:#0B173B;Padding:0px 30px 0px 0px;font-size:135%;">
+                                                                <f:validator binding="#{bindings.DateFin.validator}"/>
+                                                                <af:convertDateTime pattern="#{bindings.DateFin.format}"/>
+                                                                <af:validateDateTimeRange minimum="#{bindings.DateConge.inputValue}"/>
+                                                            </af:inputDate>
+                                                            <af:spacer width="10" height="10" id="s13"/>
+                                                            <af:spacer width="10" height="10" id="s14"/>
+                                                            <af:spacer width="10" height="10" id="s24"/>
+                                                            <af:spacer width="10" height="10" id="s12"/>
+                                                            <af:spacer width="10" height="10" id="s23"/>
+                                                            <af:commandButton text="Envoyer demande" id="cb6"
+                                                                              inlineStyle="height:0.59cm; color:green; font-family:Verdana, Arial, Helvetica, sans-serif;"
+                                                                              iconPosition="leading"
+                                                                              actionListener="#{DemCongeBean.Envoyerdemande}">
+                                                                <af:clientAttribute value="#{bindings.Typec.inputValue}"
+                                                                                    name="typecon"/>
+                                                                <af:clientAttribute value="#{bindings.DateConge.inputValue}"
+                                                                                    name="date1"/>
+                                                                <af:clientAttribute value="#{bindings.DateFin.inputValue}"
+                                                                                    name="date2"/>
+                                                            </af:commandButton>
+                                                        </af:panelFormLayout>
+                                                    </af:panelHeader>
+                                                </af:showDetailItem>
+                                                <af:showDetailItem text="Suivre l'etat des demandes" id="sdi8">
+                                                    <af:panelCollection id="pc2"
+                                                                        inlineStyle="width:841px; height:422px;">
+                                                        <f:facet name="menus"/>
+                                                        <f:facet name="toolbar"/>
+                                                        <f:facet name="statusbar"/>
+                                                        <af:table value="#{bindings.DemandeDeCongeView11.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.DemandeDeCongeView11.rangeSize}"
+                                                                  emptyText="#{bindings.DemandeDeCongeView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  fetchSize="#{bindings.DemandeDeCongeView11.rangeSize}"
+                                                                  rowBandingInterval="0"
+                                                                  filterModel="#{bindings.DemandeDeCongeView11Query.queryDescriptor}"
+                                                                  queryListener="#{bindings.DemandeDeCongeView11Query.processQuery}"
+                                                                  filterVisible="true" varStatus="vs"
+                                                                  selectedRowKeys="#{bindings.DemandeDeCongeView11.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.DemandeDeCongeView11.collectionModel.makeCurrent}"
+                                                                  rowSelection="single" id="t2" partialTriggers="cb5">
+                                                            <af:column id="c13" width="92">
+                                                                <af:image source="#{resource['images:User.png']}"
+                                                                          id="i1" inlineStyle="height:44px;"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.DateDemande.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="Date demande" id="c7" width="135">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{vs.filterCriteria.DateDemande}"
+                                                                                  id="id4">
+                                                                        <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateDemande.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.DateDemande}" id="ot1">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateDemande.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.DateConge.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="Date début" id="c8" width="123">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{vs.filterCriteria.DateConge}"
+                                                                                  id="id5">
+                                                                        <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateConge.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.DateConge}" id="ot2">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateConge.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.DateFin.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="Date fin" id="c9" width="100">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{vs.filterCriteria.DateFin}"
+                                                                                  id="id6">
+                                                                        <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateFin.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.DateFin}" id="ot3">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView11.hints.DateFin.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.Motif.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.DemandeDeCongeView11.hints.Motif.label}"
+                                                                       id="c10" width="96">
+                                                                <af:outputText value="#{row.Motif}" id="ot4"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.Typec.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.DemandeDeCongeView11.hints.Typec.label}"
+                                                                       id="c11" width="106">
+                                                                <af:outputText value="#{row.Typec}" id="ot5"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.DemandeDeCongeView11.hints.Etat.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.DemandeDeCongeView11.hints.Etat.label}"
+                                                                       id="c12"
+                                                                       inlineStyle="#{row.Etat == 'Acceptée' ? 'background-color:green;' : (row.Etat== 'Acceptée Sup' ? 'background-color:gray;' : 'background-color:red;' )}"
+                                                                       width="80">
+                                                                <af:outputText value="#{row.Etat}" id="ot6"/>
+                                                            </af:column>
+                                                            <af:column id="c14" headerText="Modifier" width="83">
+                                                                <af:commandButton text="Modifier" id="cb1"
+                                                                                  inlineStyle="margin:0px 0px 0px 10px;HEIGHT:0.56cm;"
+                                                                                  visible="#{row.Etat=='En attente'? 'true' : 'false'}">
+                                                                    <af:showPopupBehavior popupId="::p2"
+                                                                                          triggerType="action"
+                                                                                          align="afterStart"/>
+                                                                </af:commandButton>
+                                                                <af:commandButton
+                                                                                  text="Annuler"
+                                                                                  disabled="#{!bindings.Delete1.enabled}"
+                                                                                  immediate="true" id="cb5"
+                                                                                  action="#{DemCongeBean.cb5_action4}"
+                                                                                  inlineStyle="margin:0px 0px 0px 10px;HEIGHT:0.56cm;"
+                                                                                  visible="#{row.Etat=='En attente'? 'true' : 'false'}"/>
+                                                            </af:column>
+                                                        </af:table>
+                                                        <af:popup childCreation="deferred" autoCancel="disabled"
+                                                                  id="p2" contentDelivery="lazyUncached"
+                                                                  popupFetchListener="#{DemCongeBean.editPopupFetchListener}">
+                                                            <af:dialog id="d2"
+                                                                       dialogListener="#{DemCongeBean.sampleDialogListener}"
+                                                                       title="Modifier la demande">
+                                                                <f:facet name="buttonBar"/>
+                                                                <af:panelFormLayout id="pfl1"
+                                                                                    inlineStyle="height:57px;">
+                                                                    <af:inputDate value="#{bindings.DateConge.inputValue}"
+                                                                                  label="Date début"
+                                                                                  required="#{bindings.DateConge.hints.mandatory}"
+                                                                                  columns="#{bindings.DateConge.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.DateConge.hints.tooltip}"
+                                                                                  id="id7"
+                                                                                  minValue="#{datebean.minDatee}">
+                                                                        <f:validator binding="#{bindings.DateConge.validator}"/>
+                                                                        <af:convertDateTime pattern="#{bindings.DateConge.format}"/>
+                                                                       
+                                                                    </af:inputDate>
+                                                                    <af:inputDate value="#{bindings.DateFin.inputValue}"
+                                                                                  label="Date fin"
+                                                                                  required="#{bindings.DateFin.hints.mandatory}"
+                                                                                  columns="#{bindings.DateFin.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.DateFin.hints.tooltip}"
+                                                                                  id="id8"
+                                                                                  minValue="#{datebean.minDatee}">
+                                                                        <f:validator binding="#{bindings.DateFin.validator}"/>
+                                                                        <af:convertDateTime pattern="#{bindings.DateFin.format}"/>
+                                                                         
+                                                                    </af:inputDate>
+                                                                </af:panelFormLayout>
+                                                            </af:dialog>
+                                                        </af:popup>
+                                                    </af:panelCollection>
+                                                </af:showDetailItem>
+                                            </af:panelTabbed>
+                                        </af:showDetailItem>
+                                        <af:showDetailItem text="Consulter historique des congés" id="sdi4">
+                                            <af:panelHeader text="Historique des congés" id="ph8">
+                                                <f:facet name="context"/>
+                                                <f:facet name="menuBar"/>
+                                                <f:facet name="toolbar"/>
+                                                <f:facet name="legend"/>
+                                                <f:facet name="info"/>
+                                                <af:calendar value="#{bindings.HistoriqueConge1View1.calendarModel}"
+                                                             id="c18"/>
+                                            </af:panelHeader>
+                                        </af:showDetailItem>
+                                        <af:showDetailItem text="Traiter les demandes de congé" id="sdi6">
+                                            <af:panelHeader text="Liste des demandes en attente" id="ph1">
+                                                <f:facet name="context">
+                                                    <af:image source="#{resource['images:icodm.png']}" id="i6"
+                                                              inlineStyle="width:45px; height:41px;"/>
+                                                </f:facet>
+                                                <f:facet name="menuBar"/>
+                                                <f:facet name="toolbar"/>
+                                                <f:facet name="legend">
+                                                    <af:group id="g1">
+                                                        <af:commandButton text="Execute"
+                                                                          disabled="#{!bindings.Execute.enabled}"
+                                                                          id="cb7" action="#{DemCongeBean.executebutt}"
+                                                                          partialTriggers="pc1:t1" visible="false"/>
+                                                        <af:commandButton
+                                                                          text="Commit"
+                                                                          disabled="#{!bindings.Commit.enabled}"
+                                                                          id="cb9" action="#{DemCongeBean.comm}"
+                                                                          visible="false"/>
+                                                    </af:group>
+                                                </f:facet>
+                                                <f:facet name="info"/>
+                                                <af:panelCollection id="pc1" inlineStyle="width:877px; height:560px;"
+                                                                    binding="#{DemCongeBean.pan}">
+                                                    <f:facet name="menus"/>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="statusbar"/>
+                                                    <af:table value="#{bindings.DemandeDeCongeView1_1.collectionModel}"
+                                                              var="row"
+                                                             
+                                                              rows="#{bindings.DemandeDeCongeView1_1.rangeSize}"
+                                                              emptyText="#{bindings.DemandeDeCongeView1_1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              fetchSize="#{bindings.DemandeDeCongeView1_1.rangeSize}"
+                                                              rowBandingInterval="0"
+                                                              filterModel="#{bindings.DemandeDeCongeView1_1Query.queryDescriptor}"
+                                                              queryListener="#{bindings.DemandeDeCongeView1_1Query.processQuery}"
+                                                              filterVisible="true" varStatus="vs"
+                                                              selectedRowKeys="#{bindings.DemandeDeCongeView1_1.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.DemandeDeCongeView1_1.collectionModel.makeCurrent}"
+                                                              rowSelection="single" id="t1" immediate="true" binding="#{DemCongeBean.t1}" contentDelivery="immediate"
+                                                              partialTriggers=":::cb7">
+                                                        <af:column id="c16" width="117" headerText="Utilisateur">
+                                                            <af:image source="#{resource['images:User.png']}" id="i2"
+                                                                      inlineStyle="height:45px;">
+                                                                <af:showPopupBehavior popupId="::p3"
+                                                                                      triggerType="mouseHover"
+                                                                                      align="afterStart"/>
+                                                            </af:image>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.IdDemande.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="Id Demande" id="c1" width="124"
+                                                                   clientComponent="true" rendered="false">
+                                                            <af:outputText value="#{row.IdDemande}" id="ot7">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.DemandeDeCongeView1_1.hints.IdDemande.format}"/>
+                                                            </af:outputText>
+                                                            <af:clientAttribute name="new2" value="#{row.IdDemande}"/>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.DateDemande.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="Date demande" id="c2" width="136">
+                                                            <f:facet name="filter">
+                                                                <af:inputDate value="#{vs.filterCriteria.DateDemande}"
+                                                                              id="id1">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateDemande.format}"/>
+                                                                </af:inputDate>
+                                                            </f:facet>
+                                                            <af:outputText value="#{row.DateDemande}" id="ot8">
+                                                                <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateDemande.format}"/>
+                                                            </af:outputText>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.DateConge.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="Date début" id="c3" width="119">
+                                                            <f:facet name="filter">
+                                                                <af:inputDate value="#{vs.filterCriteria.DateConge}"
+                                                                              id="id2">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateConge.format}"/>
+                                                                </af:inputDate>
+                                                            </f:facet>
+                                                            <af:outputText value="#{row.DateConge}" id="ot9">
+                                                                <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateConge.format}"/>
+                                                            </af:outputText>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.DateFin.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="Date fin" id="c4" width="108">
+                                                            <f:facet name="filter">
+                                                                <af:inputDate value="#{vs.filterCriteria.DateFin}"
+                                                                              id="id3">
+                                                                    <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateFin.format}"/>
+                                                                </af:inputDate>
+                                                            </f:facet>
+                                                            <af:outputText value="#{row.DateFin}" id="ot10">
+                                                                <af:convertDateTime pattern="#{bindings.DemandeDeCongeView1_1.hints.DateFin.format}"/>
+                                                            </af:outputText>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.Typec.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="Type congé" id="c6" width="81">
+                                                            <af:outputText value="#{row.Typec}" id="ot13"/>
+                                                        </af:column>
+                                                        <af:column sortProperty="#{bindings.DemandeDeCongeView1_1.hints.Etat.name}"
+                                                                   filterable="true" sortable="true"
+                                                                   headerText="#{bindings.DemandeDeCongeView1_1.hints.Etat.label}"
+                                                                   id="c15" width="72">
+                                                            <af:outputText value="#{row.Etat}" id="ot14"/>
+                                                        </af:column>
+                                                        <af:column id="c5" headerText="Action">
+                                                            <af:commandButton text="Accepter" id="cb2"
+                                                                              inlineStyle="margin:0px 0px 9px;"
+                                                                              actionListener="#{DemCongeBean.AcceptSupHir}">
+                                                                <af:clientAttribute value="#{row.Typec}"
+                                                                                    name="typecon"/>
+                                                                <af:clientAttribute value="#{row.IdDemande}"
+                                                                                    name="new"/>
+                                                                <af:clientAttribute value="#{row.DateConge}"
+                                                                                    name="date1"/>
+                                                                <af:clientAttribute value="#{row.DateFin}"
+                                                                                    name="date2"/>
+                                                            </af:commandButton>
+                                                            <af:commandButton text="Refuser" id="cb3"
+                                                                              inlineStyle="margin:0px 0px 11px;"
+                                                                              actionListener="#{LoginBean.refuss}">
+                                                                <af:showPopupBehavior triggerType="action"
+                                                                                      align="afterStart"
+                                                                                      popupId=":::p1"/>
+                                                                <af:clientAttribute name="new1"
+                                                                                    value="#{row.IdDemande}"/>
+                                                            </af:commandButton>
+                                                        </af:column>
+                                                    </af:table>
+                                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                                                              contentDelivery="lazyUncached">
+                                                        <af:dialog id="d3" type="none" inlineStyle="color:Blue;">
+                                                            <f:facet name="buttonBar"/>
+                                                            <af:image source="#{resource['images:User.png']}" id="i4"
+                                                                      inlineStyle="margin:0px 0px 0px 115px;"/>
+                                                            <af:panelFormLayout id="pfl2">
+                                                                <af:panelLabelAndMessage label="Nom et prenom"
+                                                                                         id="plam1">
+                                                                    <af:outputText value="#{bindings.NomPrenom1.inputValue}"
+                                                                                   id="ot12"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="#{bindings.Telephone1.hints.label}"
+                                                                                         id="plam2">
+                                                                    <af:outputText value="#{bindings.Telephone1.inputValue}"
+                                                                                   id="ot15"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="#{bindings.Adresse1.hints.label}"
+                                                                                         id="plam3">
+                                                                    <af:outputText value="#{bindings.Adresse1.inputValue}"
+                                                                                   id="ot16"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="Situation familiale"
+                                                                                         id="plam4">
+                                                                    <af:outputText value="#{bindings.SituationFam1.inputValue}"
+                                                                                   id="ot17"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="#{bindings.Fonction1.hints.label}"
+                                                                                         id="plam5">
+                                                                    <af:outputText value="#{bindings.Fonction1.inputValue}"
+                                                                                   id="ot18"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="Date de naissance"
+                                                                                         id="plam6">
+                                                                    <af:outputText value="#{bindings.DateDeNaissance1.inputValue}"
+                                                                                   id="ot19">
+                                                                        <af:convertDateTime pattern="#{bindings.DateDeNaissance1.format}"/>
+                                                                    </af:outputText>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="#{bindings.Sexe1.hints.label}"
+                                                                                         id="plam7">
+                                                                    <af:outputText value="#{bindings.Sexe1.inputValue}"
+                                                                                   id="ot21"/>
+                                                                </af:panelLabelAndMessage>
+                                                                <af:panelLabelAndMessage label="#{bindings.Email1.hints.label}"
+                                                                                         id="plam8">
+                                                                    <af:outputText value="#{bindings.Email1.inputValue}"
+                                                                                   id="ot22"/>
+                                                                </af:panelLabelAndMessage>
+                                                            </af:panelFormLayout>
+                                                            <af:spacer width="10" height="10" id="s1"/>
+                                                            <dvt:pieGraph id="graph1"
+                                                                          value="#{bindings.SoldeEmployeView11.graphModel}"
+                                                                          subType="RING" customLayout="CL_NONE"
+                                                                          inlineStyle="height:191px; width:327px;">
+                                                                <dvt:background>
+                                                                    <dvt:specialEffects/>
+                                                                </dvt:background>
+                                                                <dvt:graphPieFrame/>
+                                                                <dvt:seriesSet>
+                                                                    <dvt:series/>
+                                                                </dvt:seriesSet>
+                                                                <dvt:legendArea automaticPlacement="AP_NEVER"
+                                                                                position="LAP_BOTTOM"/>
+                                                                <dvt:slice labelPosition="LP_INSIDE"/>
+                                                                <dvt:sliceLabel/>
+                                                                <dvt:pieLabel rendered="true"/>
+                                                                <dvt:graphTitle horizontalAlignment="CENTER"
+                                                                                text="Solde restant de l'employé"/>
+                                                            </dvt:pieGraph>
+                                                        </af:dialog>
+                                                    </af:popup>
+                                                </af:panelCollection>
+                                                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                                          contentDelivery="immediate" launcherVar="source"
+                                                          popupFetchListener="#{DemCongeBean.abc}">
+                                                    <af:dialog id="d7" dialogListener="#{DemCongeBean.insertmotif}"
+                                                               affirmativeTextAndAccessKey="Refuser la demande"
+                                                               cancelTextAndAccessKey="Annuler"
+                                                               partialTriggers="pc1:t1"
+                                                               title="Explication du motif de refus"
+                                                               inlineStyle="font-size:120%;">
+                                                        <f:facet name="buttonBar"/>
+                                                        <af:inputText label="Motif" id="it1" rows="17"
+                                                                      dimensionsFrom="content"
+                                                                      value="#{DemCongeBean.message1}"/>
+                                                    </af:dialog>
+                                                    <af:setPropertyListener from="#{source.attributes.new2}" 
+                           to="#{viewScope.DatePageBean.h}" type="popupFetch"/>
+                                                </af:popup>
+                                            </af:panelHeader>
+                                        </af:showDetailItem>
+                                    </af:panelTabbed>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:sendmail-->
+</f:view>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TypeConge"
+  Version="11.1.2.60.17"
+  DBObjectType="table"
+  DBObjectName="TYPE_CONGE"
+  AliasName="TypeConge"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="TypeConge"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TYPE_CONGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TYPE_CONGE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NbreDeJours"
+    ColumnName="NBRE_DE_JOURS"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="TYPE_CONGE"/>
+  <AccessorAttribute
+    Name="SoldeEmploye"
+    Association="model.SoldeEmployeConAssoc"
+    AssociationEnd="model.SoldeEmployeConAssoc.SoldeEmploye"
+    AssociationOtherEnd="model.SoldeEmployeConAssoc.TypeConge"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DemandeDeConge"
+    Association="model.DemandeDeconAssoc"
+    AssociationEnd="model.DemandeDeconAssoc.DemandeDeConge"
+    AssociationOtherEnd="model.DemandeDeconAssoc.TypeConge"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="TypeCongeCon"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TYPE_CONGE_CON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TypeConge.TypeConge"/>
+    </AttrArray>
+  </Key>
+</Entity>

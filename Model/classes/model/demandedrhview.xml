@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="demandedrhview"
+  Version="11.1.2.60.17"
+  Extends="model.DemandeDeConge"
+  DBObjectType="TABLE"
+  DBObjectName="PFE.DEMANDE_DE_CONGE"
+  AliasName="demandedrhview"
+  BindingStyle="OracleName"
+  UseGlueCode="false"></Entity>

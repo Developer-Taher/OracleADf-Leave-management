@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DemandeDeConge1View"
+  Version="11.1.2.60.17"
+  SelectList="DemandeDeConge1.ID_DEMANDE, 
+       DemandeDeConge1.DATE_DEMANDE, 
+       DemandeDeConge1.DATE_CONGE, 
+       DemandeDeConge1.DATE_FIN, 
+       DemandeDeConge1.MOTIF, 
+       DemandeDeConge1.ID_DEMANDEUR, 
+       DemandeDeConge1.TYPEC, 
+       DemandeDeConge1.ETAT"
+  FromList="DEMANDE_DE_CONGE DemandeDeConge1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="ETAT='Acceptée Sup'"
+  SdoGen="true"
+  SdoName="DemandeDeConge1ViewSDO"
+  SdoNameSpace="/model/common/">
+  <EntityUsage
+    Name="DemandeDeConge1"
+    Entity="model.DemandeDeConge1"/>
+  <ViewAttribute
+    Name="IdDemande"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdDemande"
+    EntityUsage="DemandeDeConge1"
+    AliasName="ID_DEMANDE"/>
+  <ViewAttribute
+    Name="DateDemande"
+    PrecisionRule="true"
+    EntityAttrName="DateDemande"
+    EntityUsage="DemandeDeConge1"
+    AliasName="DATE_DEMANDE"/>
+  <ViewAttribute
+    Name="DateConge"
+    PrecisionRule="true"
+    EntityAttrName="DateConge"
+    EntityUsage="DemandeDeConge1"
+    AliasName="DATE_CONGE"/>
+  <ViewAttribute
+    Name="DateFin"
+    PrecisionRule="true"
+    EntityAttrName="DateFin"
+    EntityUsage="DemandeDeConge1"
+    AliasName="DATE_FIN"/>
+  <ViewAttribute
+    Name="Motif"
+    PrecisionRule="true"
+    EntityAttrName="Motif"
+    EntityUsage="DemandeDeConge1"
+    AliasName="MOTIF"/>
+  <ViewAttribute
+    Name="IdDemandeur"
+    PrecisionRule="true"
+    EntityAttrName="IdDemandeur"
+    EntityUsage="DemandeDeConge1"
+    AliasName="ID_DEMANDEUR"/>
+  <ViewAttribute
+    Name="Typec"
+    PrecisionRule="true"
+    EntityAttrName="Typec"
+    EntityUsage="DemandeDeConge1"
+    AliasName="TYPEC"/>
+  <ViewAttribute
+    Name="Etat"
+    PrecisionRule="true"
+    EntityAttrName="Etat"
+    EntityUsage="DemandeDeConge1"
+    AliasName="ETAT"/>
+</ViewObject>

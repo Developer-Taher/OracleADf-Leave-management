@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EtatConge"
+  Version="11.1.2.60.17"
+  DBObjectType="table"
+  DBObjectName="ETAT_CONGE"
+  AliasName="EtatConge"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="Etat"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="ETAT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ETAT_CONGE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DemandeDeConge"
+    Association="model.DemandeDAssoc"
+    AssociationEnd="model.DemandeDAssoc.DemandeDeConge"
+    AssociationOtherEnd="model.DemandeDAssoc.EtatConge"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="EtatCongeCon"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ETAT_CONGE_CON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EtatConge.Etat"/>
+    </AttrArray>
+  </Key>
+</Entity>

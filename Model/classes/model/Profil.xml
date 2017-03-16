@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Profil"
+  Version="11.1.2.60.17"
+  DBObjectType="table"
+  DBObjectName="PROFIL"
+  AliasName="Profil"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="Login"
+    Precision="20"
+    ColumnName="LOGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PROFIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Pwd"
+    Precision="20"
+    ColumnName="PWD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PROFIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdEmp"
+    ColumnName="ID_EMP"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PROFIL"/>
+  <Attribute
+    Name="IdUser"
+    IsNotNull="true"
+    ColumnName="ID_USER"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PROFIL"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("PROFIL_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="Employe"
+    Association="model.ProfilConnAssoc"
+    AssociationEnd="model.ProfilConnAssoc.Employe"
+    AssociationOtherEnd="model.ProfilConnAssoc.Profil"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ProfilCon"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PROFIL_CON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Profil.IdUser"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProfilConn">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPLOYE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PROFIL_CONN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Profil.IdEmp"/>
+    </AttrArray>
+  </Key>
+</Entity>
